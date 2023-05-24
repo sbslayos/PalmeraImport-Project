@@ -15,7 +15,6 @@ const Navigation = () => {
         <Router>
             <>
             <Header/>
-            
             </>
             
             <Routes>
@@ -26,8 +25,12 @@ const Navigation = () => {
                 <Route path="cart" exact element={<shopping_Cart/>}/>
             </Routes>
 
+            <>
             <Footer/>
+            </>
+
         </Router>
+        
 
     )
 }

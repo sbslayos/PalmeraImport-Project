@@ -4,12 +4,12 @@ import React from 'react'
 const Home = () => {
   return (
    
-    <div>
-      <div className="bg-white-200 w-full h-screen top-5">
-      <h1>This is my home</h1>
+    <section className='bg-gray-200' >
+      <div className="bg-white-200 w-full h-screen mt-40">
+      <h1 className='text-3xl font-bold text-center' >This is my home</h1>
       <p>lorem ipsum asdahsjdhjashjdahsjd asdajdkajsdha</p>
       </div>
-    </div>
+      </section>
   )
 }
 

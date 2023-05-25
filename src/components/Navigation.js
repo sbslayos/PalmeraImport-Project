@@ -22,7 +22,7 @@ const Navigation = () => {
                 <Route path="/login" exact element={<Login/>}/>
                 <Route path="/about" exact element={<About/>} />
                 <Route path="/product" exact element={<Product/>}/>
-                <Route path="cart" exact element={<shopping_Cart/>}/>
+                <Route path="/cart" exact element={<shopping_Cart/>}/>
             </Routes>
 
             <>

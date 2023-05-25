@@ -50,7 +50,7 @@ const Header = () => {
             </li>
           ))}
             <Link to="/login" >
-            <Button type="button" >Iniciar Sesión</Button>
+            <Button type="button" >Ingresar</Button>
             </Link>
 
         </ul>

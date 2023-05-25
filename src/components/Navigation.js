@@ -7,6 +7,7 @@ import Footer from './Footer';
 import Login from './Login';
 import Product from './Product';
 import shopping_Cart from './shopping_Cart';
+import NewAccount from './NewAccount';
 
 const Navigation = () => {
 
@@ -23,6 +24,7 @@ const Navigation = () => {
                 <Route path="/about" exact element={<About/>} />
                 <Route path="/product" exact element={<Product/>}/>
                 <Route path="/cart" exact element={<shopping_Cart/>}/>
+                <Route path='/new-account' exact element={<NewAccount/>}/>
             </Routes>
 
             <>

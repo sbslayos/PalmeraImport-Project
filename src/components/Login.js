@@ -1,5 +1,4 @@
 import React from 'react'
-import Button from './Button'
 import { Link } from 'react-router-dom'
 
 const Login = () => {
@@ -21,11 +20,10 @@ const Login = () => {
               <input
               type='password' placeholder='Contraseña de registro' className='shadow-md border-slate-500 bg-gray-50 rounded-xl w-full p-3 mt-2 ' 
               />
-              <div className='p-1 pr-2 my-4' >
-              <Button>Iniciar Sesión</Button>
-              </div>
-              <Link to={"/new-account"} className='block text-center text-1xl my-3 '>
-                  Crear Cuenta
+              <input type='submit' value={"Iniciar Sesión"} className='bg-indigo-600 w-full shadow-md p-2 mt-7 text-center text-white font-san my-4 rounded-xl hover:text-gray-400 duration-500'
+              />
+              <Link to={"/new-account"} className='block text-center text-1xl text-gray-800 hover:text-gray-400'>
+                  Registrarse
               </Link>
           </div>
         </form>

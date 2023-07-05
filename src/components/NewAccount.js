@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-import Swal from 'sweetalert'
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import Swal from 'sweetalert';
+import crud from './conexiones/Crud';
 
 const NewAccount = () => {
 
@@ -47,6 +48,11 @@ if (password !== confirmar) {
     password: usuario.password
   }
   console.log(data);
+  const response = await crud.POST(`/api/usuarios`, data);
+  const mensaje = response.msg;
+  console.log(mensaje);
+  console.log(response);
+
 }};
 
     const onSubmit = (e) =>{
@@ -110,4 +116,4 @@ if (password !== confirmar) {
   )
 }
 
-export default NewAccount
+export default NewAccount;

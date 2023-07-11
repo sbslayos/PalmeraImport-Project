@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert';
 import crud from './conexiones/Crud';
 
 const NewAccount = () => {
 
+  const navigate = useNavigate();
 
     const [usuario, setUsuario] = useState({
       nombre:'',
@@ -52,7 +53,43 @@ if (password !== confirmar) {
   const mensaje = response.msg;
   console.log(mensaje);
   console.log(response);
-
+  if(mensaje === "El usuario ya existe"){
+    Swal({
+      title:'Error',
+      text: "El usuario ya existe.",
+      icon: 'error',
+        buttons:{
+          confirm:{
+            text:'OK',
+            value: true,
+            visible: true,
+            className:'btn btn-primary',
+            closeModal: true
+          }}
+    });
+  }else{
+    Swal({
+      title:'Registro Exitoso',
+      text: "Usuario creado con exito",
+      icon: 'success',
+        buttons:{
+          confirm:{
+            text:'OK',
+            value: true,
+            visible: true,
+            className:'btn btn-danger',
+            closeModal: true
+          }}
+    });
+  };
+  setUsuario({
+    nombre:'',
+      email:'',
+      password:'',
+      confirmar: ''
+  })
+  //redirección a página de Login
+  navigate("/login");
 }};
 
     const onSubmit = (e) =>{

@@ -5,6 +5,8 @@ import Swal from 'sweetalert';
 
 const Login = () => {
 
+  const navigate = useNavigate();
+
     const [usuario, setUsuario] = useState({
       email:'',
       password:''
@@ -28,7 +30,7 @@ const ingresarCuenta = async() => {
   const response = await crud.POST('/api/auth', data);
   const mensaje = response.msg;
   //console.log(mensaje);
-  //Validación de email inexistente o password incorrecto
+  //Validación de email inexistente, password incorrecto, redirecionamiento
   if(mensaje === "El usuario no existe"){
     Swal({
       title:'Error',
@@ -58,7 +60,12 @@ const ingresarCuenta = async() => {
           }}
     });
   } else{
-    // mensaje = response.token;
+    const jwt = response.token;
+    
+    //Almacenado en localStorage
+    localStorage.setItem('token', jwt);
+
+    navigate("/Admin")
   };
 
 

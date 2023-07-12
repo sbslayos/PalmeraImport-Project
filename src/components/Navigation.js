@@ -8,6 +8,7 @@ import Login from './Login';
 import Product from './Product';
 import Cart from './shopping_Cart';
 import NewAccount from './NewAccount';
+import Admin from './Admin';
 
 const Navigation = () => {
 
@@ -25,6 +26,7 @@ const Navigation = () => {
                 <Route path="/product" exact element={<Product/>}/>
                 <Route path="/cart" exact element={<Cart/>}/>
                 <Route path='/new-account' exact element={<NewAccount/>}/>
+                <Route path='admin' exact element={<Admin/>}/>
             </Routes>
 
             <>

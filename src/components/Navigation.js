@@ -10,6 +10,7 @@ import Cart from './shopping_Cart';
 import NewAccount from './NewAccount';
 import Admin from './Admin';
 
+
 const Navigation = () => {
 
     return (
@@ -26,12 +27,16 @@ const Navigation = () => {
                 <Route path="/product" exact element={<Product/>}/>
                 <Route path="/cart" exact element={<Cart/>}/>
                 <Route path='/new-account' exact element={<NewAccount/>}/>
-                <Route path='admin' exact element={<Admin/>}/>
+                <Route path='/admin' exact element={
+                    <>
+                    <Admin />
+                    </>
+                }/>
             </Routes>
 
-            <>
+           
             <Footer/>
-            </>
+            
 
         </Router>
         

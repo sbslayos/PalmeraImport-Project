@@ -9,6 +9,7 @@ import Product from './Product';
 import Cart from './shopping_Cart';
 import NewAccount from './NewAccount';
 import Admin from './Admin';
+import Categoria from './Categoria';
 
 
 const Navigation = () => {
@@ -27,9 +28,11 @@ const Navigation = () => {
                 <Route path="/product" exact element={<Product/>}/>
                 <Route path="/cart" exact element={<Cart/>}/>
                 <Route path='/new-account' exact element={<NewAccount/>}/>
+                <Route path='/crear-categoria' exact element={<Categoria/>}/>
                 <Route path='/admin' exact element={
                     <>
                     <Admin />
+                    
                     </>
                 }/>
             </Routes>

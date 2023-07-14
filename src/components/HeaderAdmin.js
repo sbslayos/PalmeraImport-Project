@@ -1,6 +1,13 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
-const HeaderAdmin = ({ cerrarSesion }) => {
+const HeaderAdmin = () => {
+  const Navigate = useNavigate();
+
+  const cerrarSesion = () => {
+    localStorage.removeItem("token");
+    Navigate("/");
+  };
   return (
     <div className="shadow-md w-full fixed top-0 left-0">
       <div className="md:flex items-center justify-between bg-blue-300 py-2 md:px-10 px-6 ">

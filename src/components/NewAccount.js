@@ -24,6 +24,24 @@ const NewAccount = () => {
     };
 
     const crearCuenta = async() => {
+      
+      // if(!usuario.nombre || !usuario.email || !usuario.password || !usuario.confirmar ){
+      //   const messageAlert = "Todos los campos son obligatorios."
+      //   Swal({
+      //     title:'Error',
+      //     text: messageAlert,
+      //     icon: 'error',
+      //       buttons:{
+      //         confirm:{
+      //           text:'OK',
+      //           value: true,
+      //           visible: true,
+      //           className:'btn btn-danger',
+      //           closeModal: true
+      //         }}
+      //   });
+      //  } 
+
       // Validación de Contraseñas iguales.
 if (password !== confirmar) {
   console.log('diferentes');
@@ -97,6 +115,23 @@ if (password !== confirmar) {
       crearCuenta();
     }
 
+    const validarFormulario = usuario.nombre && usuario.email && usuario.password && usuario.confirmar;
+    // if(!validarFormulario){
+    //   const messageAlert = "Todos los campos son obligatorios."
+    //     Swal({
+    //       title:'Error',
+    //       text: messageAlert,
+    //       icon: 'error',
+    //         buttons:{
+    //           confirm:{
+    //             text:'OK',
+    //             value: true,
+    //             visible: true,
+    //             className:'btn btn-danger',
+    //             closeModal: true
+    //           }}
+    //     });
+    // }
 
   return (
     <main className='container mx-auto mt-24 text-center md:mt-20 p-5 md:flex md:justify-center '>
@@ -141,7 +176,9 @@ if (password !== confirmar) {
               value={confirmar}
               onChange={onChange} 
               />
-              <input type='submit' value={"Finalizar Registro"} className='bg-indigo-600 w-full shadow-md p-2 mt-7 text-center text-white font-san my-4 rounded-xl hover:text-gray-400 duration-500'
+              <input type='submit' value={"Finalizar Registro"} 
+              disabled={!validarFormulario} // Inhabilita el boton de Envio del formulario si estos estan vacios
+              className='bg-indigo-600 w-full shadow-md p-2 mt-7 text-center text-white font-san my-4 rounded-xl hover:text-gray-400 duration-500'
               />
               <Link to={"/login"} className='block text-center text-1xl text-gray-800 hover:text-gray-400'>
                   Regresar

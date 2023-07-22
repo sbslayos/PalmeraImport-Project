@@ -13,7 +13,7 @@ class crud {
         if(token === ""){
             bearer = "";
         } else{
-            bearer=`${token}`
+            bearer=`${token}`;
         }
 
 

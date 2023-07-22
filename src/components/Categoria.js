@@ -54,7 +54,7 @@ const Categoria = () => {
         <main className="container mx-auto mt-24 text-center md:mt-20 p-5 md:flex md:justify-center ">
           <div>
             <h1 className="font-sans text-2xl font-bold text-gray-800 pt-6 md:text-xl">
-              Crear Categorias
+              Crear Categoria
             </h1>
             <form
               onSubmit={onSubmit}

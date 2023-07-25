@@ -1,9 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import HeaderAdmin from "./HeaderAdmin";
 import SideBar from "./SideBar";
-
-
+import crud from "./conexiones/Crud"
 
 const Admin = () => {
   const Navigate = useNavigate();
@@ -19,10 +18,16 @@ const Admin = () => {
     autenticarUsuario();
   }, [Navigate]); // [] se ejecuta solo 1 vez
 
-  // const cerrarSesion = () => {
-  //   localStorage.removeItem("token");
-  //   Navigate("/");
-  // };
+ const [categoria, setCategoria] = useState([]);
+
+ const cargarCategorias = async () => {
+    const response = await crud.GET('/api/categoria');
+    console.log(response);
+ }
+
+ useEffect(() => {
+  cargarCategorias();
+ },[]);
 
   return (
     <>
@@ -35,7 +40,6 @@ const Admin = () => {
             <h1 className="font-sans text-2xl font-bold text-gray-800 pt-6 md:text-xl">
               Lista de Categorias
             </h1>
-            
           </div>
           {/* </div> */}
         </main>

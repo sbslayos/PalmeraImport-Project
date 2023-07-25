@@ -8,7 +8,7 @@ const SideBar = () => {
       <div className="flex justify-center">
         <Link to="/crear-categoria">
           <Button className="w-full text-sm" type="button">
-            Crear categoria
+            Crear Categoria
           </Button>
         </Link>
       </div>

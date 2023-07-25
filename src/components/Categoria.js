@@ -3,6 +3,8 @@ import SideBar from "./SideBar";
 import HeaderAdmin from "./HeaderAdmin";
 import { useNavigate } from "react-router-dom";
 import crud from "./conexiones/Crud"
+import Swal from 'sweetalert';
+
 
 const Categoria = () => {
   const Navigate = useNavigate();
@@ -39,7 +41,22 @@ const Categoria = () => {
     const response = await crud.POST('/api/categoria', data);
     const mensaje = response.msg;
     console.log(mensaje);
+    Swal({
+      title:'Categoria Creada',
+      text: "Categoria creada con exito",
+      icon: 'success',
+        buttons:{
+          confirm:{
+            text:'OK',
+            value: true,
+            visible: true,
+            className:'btn btn-danger',
+            closeModal: true
+          }}
+    });
+    Navigate("/Admin");
   };
+ 
 
   const onSubmit = (e) => {
     e.preventDefault();

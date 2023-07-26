@@ -11,9 +11,10 @@ const Categoria = () => {
 
   const [categoria, setCategoria] = useState({
     nombre: '',
+    imagen:''
   });
   
-  const { nombre } = categoria;
+  const { nombre, imagen } = categoria;
 
   useEffect(() => {
     const autenticarUsuario = async () => {
@@ -36,6 +37,7 @@ const Categoria = () => {
   const crearCategoria = async () => {
     const data = {
       nombre: categoria.nombre,
+      imagen: categoria.imagen,
     };
     //console.log(data);
     const response = await crud.POST('/api/categoria', data);
@@ -79,14 +81,27 @@ const Categoria = () => {
             >
               <div className="">
                 <label className=" text-gray-500 text-1xl">
-                  Anexo Categoria
+                  Nombre de la Categoria
                 </label>
                 <input
                   type="nombre"
                   id="nombre"
                   name="nombre"
                   onChange={onChange}
-                  placeholder="Nombre Categoria "
+                  value={nombre}
+                  placeholder="Nombre "
+                  className="shadow-md border-slate-500 bg-gray-50 rounded-xl w-full p-3 mt-3 mb-3"
+                />
+                <label className=" text-gray-500 text-1xl">
+                  Imagen de la Categoria
+                </label>
+                <input
+                  type="text"
+                  id="imagen"
+                  name="imagen"
+                  onChange={onChange}
+                  value={imagen}
+                  placeholder="Imagen"
                   className="shadow-md border-slate-500 bg-gray-50 rounded-xl w-full p-3 mt-3 mb-3"
                 />
                 <input

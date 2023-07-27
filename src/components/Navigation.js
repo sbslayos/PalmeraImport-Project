@@ -10,6 +10,7 @@ import Cart from './shopping_Cart';
 import NewAccount from './NewAccount';
 import Admin from './Admin';
 import Categoria from './Categoria';
+import ActualizarCategoria from './ActualizarCategoria';
 
 
 const Navigation = () => {
@@ -29,10 +30,10 @@ const Navigation = () => {
                 <Route path="/cart" exact element={<Cart/>}/>
                 <Route path='/new-account' exact element={<NewAccount/>}/>
                 <Route path='/crear-categoria' exact element={<Categoria/>}/>
+                <Route path='/actualizar-categoria/:idCategoria' exact element={<ActualizarCategoria/>}/>
                 <Route path='/admin' exact element={
                     <>
                     <Admin />
-                    
                     </>
                 }/>
             </Routes>

@@ -5,7 +5,7 @@ import SideBar from "./SideBar";
 import crud from "./conexiones/Crud";
 import "@fortawesome/fontawesome-free/css/all.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Swal from "sweetalert";
+import swal from "sweetalert";
 
 const Admin = () => {
   const Navigate = useNavigate();
@@ -35,32 +35,40 @@ const Admin = () => {
 
   const borrarCategoria = async (e, idCategoria) => {
     e.preventDefault();
-    const response = await crud.DELETE(`/api/categoria/${idCategoria}`);
-    console.log(response.msg);
-    const messageAlert = "Se borro correctamente la categoria.";
-    Swal({
-      title: "Proceso Exitoso",
-      text: messageAlert,
-      icon: "success",
-      buttons: {
-        confirm: {
-          text: "OK",
-          value: true,
-          visible: true,
-          className: "btn btn-danger",
-          closeModal: true,
-        },
-      },
+
+    swal({
+      title: "Estas seguro de eliminar esta categoria",
+      text: "Una vez eliminada, no podra ser recuperada",
+      icon:"warning",
+      buttons: true,
+    })
+    .then(async(willDelete) => {
+      if(willDelete){
+        // Llamado a la Api
+        const response = await crud.DELETE(`/api/categoria/${idCategoria}`);
+        console.log(response.msg);
+
+        swal("Categoria eliminada correctamente",{
+          icon:"success",
+        });
+
+        //Actualiza el estado para reflejar los cambios solición 1 y solución 2
+        // setCategoria(
+        //   categoria.filter((categoria) => categoria._id !== idCategoria)
+        // );
+        cargarCategorias();
+
+      } else {
+        swal("Categoria no eliminada",{
+          icon:"error",
+        });
+      }
     });
-    setCategoria(
-      categoria.filter((categoria) => categoria._id !== idCategoria)
-    );
-  };
+};
 
-  // const actualizarCategoria = async (idCategoria)  =>{
-
-  //   const response = await crud.PUT(`/api/categoria/${idCategoria}`);
-  // }
+  const actualizarCategoria = async (idCategoria)  =>{
+    Navigate(`/actualizar-categoria/${idCategoria}`)
+  }
 
 
 
@@ -96,7 +104,7 @@ const Admin = () => {
                         type="submit"
                         value="Actualizar"
                         className="bg-indigo-600 text-white font-sans   py-2 px-5 rounded md:ml-8  hover:text-gray-400 duration-500"
-                        //onClick={actualizarCategoria(item._id)}
+                        onClick={() => actualizarCategoria(item._id)}
                       />
                       <input
                         type="submit"

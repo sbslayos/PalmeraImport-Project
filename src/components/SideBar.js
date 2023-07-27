@@ -12,13 +12,13 @@ const SideBar = () => {
           </Button>
         </Link>
       </div>
-      <div className="flex justify-center">
+      {/* <div className="flex justify-center">
         <Link to="/crear-categoria">
           <Button className="w-full text-sm" type="button">
             Crear Producto
           </Button>
         </Link>
-      </div>
+      </div> */}
     </aside>
   );
 };

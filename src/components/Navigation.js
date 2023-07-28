@@ -11,6 +11,8 @@ import NewAccount from './NewAccount';
 import Admin from './Admin';
 import Categoria from './Categoria';
 import ActualizarCategoria from './ActualizarCategoria';
+import HomeProductos from './productos/HomeProductos';
+import CrearProductos from './productos/CrearProductos';
 
 
 const Navigation = () => {
@@ -31,6 +33,8 @@ const Navigation = () => {
                 <Route path='/new-account' exact element={<NewAccount/>}/>
                 <Route path='/crear-categoria' exact element={<Categoria/>}/>
                 <Route path='/actualizar-categoria/:idCategoria' exact element={<ActualizarCategoria/>}/>
+                <Route path='/home-productos/:idCategoria' exact element={<HomeProductos/>}/>
+                <Route path='/crear-producto/:idCategoria' exact element={<CrearProductos/>}/>
                 <Route path='/admin' exact element={
                     <>
                     <Admin />

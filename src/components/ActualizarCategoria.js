@@ -10,7 +10,7 @@ const ActualizarCategoria = () => {
   const Navigate = useNavigate();
 
   const {idCategoria} = useParams();
-  console.log(idCategoria);
+  //console.log(idCategoria);
 
   const [categoria, setCategoria] = useState({
     nombre:"",
@@ -61,6 +61,7 @@ const ActualizarCategoria = () => {
           }}
     });
     Navigate("/Admin");
+    cargarCategoria();
   }
 
   const onSubmit = (e) =>{

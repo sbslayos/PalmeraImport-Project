@@ -70,7 +70,9 @@ const Admin = () => {
     Navigate(`/actualizar-categoria/${idCategoria}`)
   }
 
-
+  const crearProductos = async(idCategoria)=>{
+    Navigate(`/home-productos/${idCategoria}`);
+  } 
 
   return (
     <>
@@ -116,7 +118,7 @@ const Admin = () => {
                         type="submit"
                         value="Crear Producto"
                         className="bg-indigo-600 text-white font-sans  py-2 px-5 rounded md:ml-8 hover:text-gray-400 duration-500"
-                        //onClick={cerrarSesion}
+                        onClick={() => crearProductos(item._id)}
                       />
                     </td>
                   </tr>

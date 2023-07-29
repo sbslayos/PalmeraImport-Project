@@ -1,6 +1,11 @@
 import React from 'react'
 
 const TarjetaProducto = ({ producto }) => {
+
+
+
+
+
   return (
     <div className='bg-gray-200 shadow-lg rounded-lg overflow-hidden'>
         <img
@@ -16,12 +21,12 @@ const TarjetaProducto = ({ producto }) => {
             
             <div>
             <button className='text-sm text-blue-500' >Actualizar</button>
-            <button className='text-sm text-red-500 ml-2' >Borrar</button>
+            <button className='text-sm text-red-500 ml-2'>Borrar</button>
             </div>
             </div>
         </div>
     </div>
   )
-}
+};
 
 export default TarjetaProducto;

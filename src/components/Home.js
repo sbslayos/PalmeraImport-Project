@@ -1,14 +1,17 @@
 import React from 'react'
 
-
 const Home = () => {
+
   return (
     <>
-    <main>
-    <div className="md:flex justify-center items-center h-screen bg-gray-400 py-1 ">
-    </div>
-
-    </main>
+ 
+   <main>
+        {/* Imagen */}
+        <div className="relative mt-24">
+          <img src="https://res.cloudinary.com/dly1drjbb/image/upload/v1690610262/Collage_multimarca_pvrey2.jpg" alt="Collage" className="w-full" />
+          {/* <h1 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-4xl font-bold text-white">¡LAS MEJORES MARCAS CON LOS MEJORES PRECIOS!</h1> */}
+        </div> 
+      </main>
   </>
   )
 }
@@ -18,9 +21,3 @@ export default Home
 
 
 
-/* <div
-      className='bg-cover bg-center h-80 w-80'
-      style={{
-        backgroundImage: `url("https://res.cloudinary.com/dly1drjbb/image/upload/v1690400310/fashion-1472367_uqq4oi.jpg")`,
-      }}
-    ></div> */

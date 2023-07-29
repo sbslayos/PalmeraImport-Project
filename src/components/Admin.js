@@ -77,54 +77,60 @@ const Admin = () => {
   return (
     <>
       <HeaderAdmin />
-      <div className="flex min-h-screen">
+      <div className="flex flex-col md:flex-row min-h-screen mt-9 ">
+        
         <SideBar />
-        <main className="container mx-auto mt-24 text-center md:mt-20 p-5 md:flex md:justify-center ">
-          <div>
-            <h1 className="font-sans text-2xl font-bold text-gray-800 pt-6 md:text-xl">
+        
+        <main className="container mx-auto mt-24 text-center md:mt-20 p-5 md:flex md:justify-center flex-1  ">
+          <div className="w-full">
+            <h1 className="font-sans text-2xl font-bold text-gray-900 pt-6 md:text-xl">
               Lista de Categorias
             </h1>
-            <table className="font-sans">
-              <thead>
-                <tr>
-                  <th>Imagen</th>
-                  <th>Nombre</th>
-                  <th>ID</th>
-                  <th>Opciones</th>
-                </tr>
-              </thead>
-              <tbody className="bg-blue-200">
-                {categoria.map((item) => (
-                  <tr key={item._id}>
-                    <td>
-                      <img src={item.imagen} width="150" height="150"></img>
-                    </td>
-                    <td>{item.nombre}</td>
-                    <td>{item._id}</td>
-                    <td>
-                      <input
-                        type="submit"
-                        value="Actualizar"
-                        className="bg-indigo-600 text-white font-sans   py-2 px-5 rounded md:ml-8  hover:text-gray-400 duration-500"
-                        onClick={() => actualizarCategoria(item._id)}
-                      />
-                      <input
-                        type="submit"
-                        value="Eliminar"
-                        className="bg-indigo-600 text-white font-sans py-2 px-5 rounded md:ml-8 hover:text-gray-400 duration-500"
-                        onClick={(e) => borrarCategoria(e, item._id)}
-                      />
-                      <input
-                        type="submit"
-                        value="Crear Producto"
-                        className="bg-indigo-600 text-white font-sans  py-2 px-5 rounded md:ml-8 hover:text-gray-400 duration-500"
-                        onClick={() => crearProductos(item._id)}
-                      />
-                    </td>
+            <div className="overflow-x-auto">
+              <table className="table-auto w-full rounded-xl ">
+                <thead>
+                  <tr>
+                    <th className="px-4 py-2">Imagen</th>
+                    <th className="px-4 py-2">Nombre</th>
+                    <th className="px-4 py-2">ID</th>
+                    <th className="px-4 py-2">Opciones</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody className="bg-blue-100">
+                  {categoria.map((item) => (
+                    <tr key={item._id}>
+                      <td className="px-4 py-2">
+                        <img src={item.imagen} alt={item.nombre} className="w-24 h-24 object-cover rounded-lg" />
+                      </td>
+                      <td className="px-4 py-2">{item.nombre}</td>
+                      <td className="px-4 py-2">{item._id}</td>
+                      <td className="px-4 py-2">
+                        <div className="flex flex-col md:flex-row md:space-x-2">
+                          <button
+                            className="bg-indigo-600 text-white font-sans py-2 px-4 rounded hover:text-gray-400 duration-500 text-sm w-full md:w-auto my-1 "
+                            onClick={() => actualizarCategoria(item._id)}
+                          >
+                            Actualizar
+                          </button>
+                          <button
+                            className="bg-indigo-600 text-white font-sans py-2 px-4 rounded hover:text-gray-400 duration-500 text-sm w-full md:w-auto my-1"
+                            onClick={(e) => borrarCategoria(e, item._id)}
+                          >
+                            Eliminar
+                          </button>
+                          <button
+                            className="bg-indigo-600 text-white font-sans py-2 px-4 rounded hover:text-gray-400 duration-500 text-sm w-full md:w-auto my-1"
+                            onClick={() => crearProductos(item._id)}
+                          >
+                            Crear Producto
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </main>
       </div>

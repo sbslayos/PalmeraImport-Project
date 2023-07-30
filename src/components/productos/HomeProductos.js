@@ -27,6 +27,35 @@ useEffect(() =>{
     cargarProductos();
 },[]);
 
+const borrarProducto = async (productoId) =>  {
+
+  swal({
+    title:"Estas seguro de eliminar este producto",
+    text: "Una vez eliminado no podra ser recuperado",
+    icon: "warning",
+    buttons: true,
+  })
+  .then(async(willDelete) => {
+    if(willDelete){
+      const response = await crud.DELETE(`/api/producto/${productoId}`);
+      console.log(response.msg);
+
+      swal("Producto eliminado correctamente",{
+        icon:"success",
+      })
+
+      cargarProductos();
+    } else {
+      swal("Producto no eliminado",{
+        icon:"error",
+      })
+    }
+  });
+}
+
+// const actualizarProducto = async (idProducto) => {
+//   Navigate(`/actualizar-producto/${idCategoria,idProducto}`);
+// }
 
   return (
     <>
@@ -40,7 +69,7 @@ useEffect(() =>{
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6">
             {productos.map((producto) => (
-              <TarjetaProducto key={producto._id} producto={producto} />
+              <TarjetaProducto key={producto._id} producto={producto} onBorrarProducto={borrarProducto}  />
             ))}
           </div>
 
@@ -56,3 +85,5 @@ useEffect(() =>{
 };
 
 export default HomeProductos;
+
+//onActualizarProducto={actualizarProducto}

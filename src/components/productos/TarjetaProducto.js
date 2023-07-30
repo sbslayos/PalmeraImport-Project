@@ -1,6 +1,6 @@
 import React from 'react'
 
-const TarjetaProducto = ({ producto }) => {
+const TarjetaProducto = ({ producto, onBorrarProducto }) => {
 
 
 
@@ -18,10 +18,12 @@ const TarjetaProducto = ({ producto }) => {
             <p className='text-gray-600 mt-2'>{producto.descripcion}</p>
             <div className='flex justify-between items-center mt-4' >
                 <span className='text-indigo-600 font-bold' >${producto.precio}</span>
-            
+                <div>
+            <p className='text-gray-600 mt-2 text-left'>Stock: {producto.stock}</p>
             <div>
             <button className='text-sm text-blue-500' >Actualizar</button>
-            <button className='text-sm text-red-500 ml-2'>Borrar</button>
+            <button className='text-sm text-red-500 ml-2' onClick={() => onBorrarProducto(producto._id)} >Borrar</button>
+            </div>
             </div>
             </div>
         </div>
@@ -30,3 +32,6 @@ const TarjetaProducto = ({ producto }) => {
 };
 
 export default TarjetaProducto;
+
+
+//onClick={() => onActualizarProducto(producto._id) } 

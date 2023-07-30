@@ -35,6 +35,7 @@ const Navigation = () => {
                 <Route path='/actualizar-categoria/:idCategoria' exact element={<ActualizarCategoria/>}/>
                 <Route path='/home-productos/:idCategoria' exact element={<HomeProductos/>}/>
                 <Route path='/crear-producto/:idCategoria' exact element={<CrearProductos/>}/>
+                
                 <Route path='/admin' exact element={
                     <>
                     <Admin />
@@ -52,3 +53,6 @@ const Navigation = () => {
     )
 }
 export default Navigation;
+
+
+//<Route path='/actualizar-producto/:idProducto' exact element={<ActualizarProducto/>}/>
